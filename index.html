@@ -3,7 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Animated Letter with Button</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f8f8;
+        font-family: "Arial", sans-serif;
+      }
+
+      .envelope {
+        width: 350px;
+        height: 250px;
+        background-color: #d35400;
+        position: relative;
+        border-radius: 10px 10px 5px 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .letter {
+        width: 320px;
+        height: 200px;
+        background-color: white;
+        position: absolute;
+        bottom: 0;
+        padding: 15px;
+        font-size: 16px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(100%);
+        transition: transform 1s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .envelope.open .letter {
+        transform: translateY(0);
+      }
+
+      .text {
+        opacity: 0;
+        white-space: pre-wrap;
+        overflow: hidden;
+        border-right: 2px solid black;
+        width: 0;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .envelope.open .text {
+        animation: typing 3s steps(50, end) forwards;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+          opacity: 1;
+        }
+        to {
+          width: 100%;
+          opacity: 1;
+        }
+      }
+
+      .button-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: white;
+        color: #d35400;
+        border: 2px solid #d35400;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #ebe3de;
+        color: white;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="envelope" id="envelope">
+      <div class="button-container">
+        <button class="btn" onclick="openLetter()">
+          Click to Open Letter >> {Taslima}
+        </button>
+      </div>
+      <div class="letter">
+        <div class="text">
+          গরিবদের কেউ মনেও করে না। আজকে আমার টাকা থাকলে কেউ নক দিয়ে খবর নিতো💔।
+          থাক ব্যাপার না, অন্য ছেলেদের মতো আমার একদিন টাকা হবে, টাকা হলে মানুষ
+          এমনিতেই স্মাট হয়ে যায়।
+          <!-- <hr /> -->
+          বিদ্র : তাদের মেসেজ সিন করবে কিন্তু রিপলে দিবে না। বড়লোকদের উদাহরণ
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openLetter() {
+        document.getElementById("envelope").classList.add("open");
+      }
+    </script>
+  </body>
 </html>
