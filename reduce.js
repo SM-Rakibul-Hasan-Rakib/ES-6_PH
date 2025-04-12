@@ -14,3 +14,18 @@ console.log(price);
 // foreEach
 
 products.forEach((p) => console.log(p.name, p.price));
+
+// filter
+
+const expensive = products.filter((p) => p.price > 50000);
+// console.log(expensive);
+
+// find
+
+const affordable = products.find((p) => p.price < 50000);
+console.log(affordable);
+
+// reduce
+
+const total = products.reduce((a, b) => a + b.price, 0);
+console.log(total);
