@@ -1,4 +1,16 @@
-const numbers = [4, 5, 8, 7, 66];
+const products = [
+  { id: 1, name: "lenovo", price: 65000 },
+  { id: 2, name: "dell", price: 45000 },
+  { id: 3, name: "hp", price: 40000 },
+  { id: 4, name: "mac", price: 150000 },
+];
 
-const total = numbers.reduce((previous, current) => previous + current, 0);
-console.log(total);
+// map
+const names = products.map((product) => product.name);
+console.log(...names);
+const price = products.map((p) => p.price);
+console.log(price);
+
+// foreEach
+
+products.forEach((p) => console.log(p.name, p.price));
