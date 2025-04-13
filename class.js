@@ -5,7 +5,7 @@ const products = [
   { id: 4, name: "mac", price: 150000 },
 ];
 
-// has some properties, methodf
+// has some properties, method
 class product {
   country = "Bangladesh";
   constructor(name) {
